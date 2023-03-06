@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+{% block title %} Добавить группу {% endblock title %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Отправить</button>
+    <a class="btn btn-info" href="{% url 'groups' %}">Список групп</a>
+</form>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+{% block title %} Добавить предмет {% endblock title %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Отправить</button>
+    <a class="btn btn-info" href="{% url 'subjects:subjects_view' %}">Список предметов</a>
+</form>
+{% endblock content %}
