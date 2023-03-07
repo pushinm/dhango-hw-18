@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Student, Group
 
 from django.db.models import Q, F, Count
-from django.views.generic import CreateView, DeleteView, UpdateView, ListView
+from django.views.generic import CreateView, DeleteView, UpdateView, ListView, DetailView
 from django.views.generic.base import TemplateView
 
 from .forms import StudentAddForm, Group_Create_Form
@@ -130,3 +130,21 @@ class Group_Create_View(CreateView):
     template_name = 'create_group.html'
     success_url = '/students/groups/'
     form_class = Group_Create_Form
+
+
+class Group_Update(UpdateView):
+    model = Group
+    template_name = 'create_group.html'
+    success_url = '/students/groups/'
+    form_class = Group_Create_Form
+
+class Group_Detail(DetailView):
+    model = Group
+    template_name = 'group_deteail.html'
+    context_object_name = 'group'
+
+
+class Group_Delete(DeleteView):
+    model = Group
+    template_name = 'delete_group.html'
+    success_url = '/students/groups/'

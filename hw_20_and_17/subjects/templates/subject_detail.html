@@ -5,8 +5,9 @@
 {% endblock title %}
     
 {% block content %}
-    <h3>{{ class.name }}</h3>
-    {{ class.teacher.name }}
-    <a class="btn btn-info" href={% url 'classes:class_view' %}>Обратно</a>
+    <div>
+    <h1>{{ current_subject.name }}</h1>
+    <button><a href="{% url 'subjects:subjects_view' %}">Обратно</a></button>
+    </div>
 {% endblock content %}
     

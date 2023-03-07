@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Subject
 from teachers.models import Teacher
 from .forms import Subject_create_form
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.db.models import Q
 
 # Create your views here.
@@ -24,6 +24,24 @@ class Subjects_Create(CreateView):
     template_name = 'subjects_create.html'
     success_url = '/subjects/'
     form_class = Subject_create_form
+
+class Subjects_Update(UpdateView):
+    model = Subject
+    template_name = 'subjects_create.html'
+    success_url = '/subjects/'
+    form_class = Subject_create_form
+
+class Subjects_Detail(DetailView):
+    model = Subject
+    template_name = 'subject_detail.html'
+    context_object_name = 'current_subject'
+
+
+class Subjects_Delete(DeleteView):
+    model = Subject
+    template_name = 'subject_delete.html'
+    success_url = '/subjects/'
+
 
 def subjects_view(request, pk=None) -> render:
     if pk:
